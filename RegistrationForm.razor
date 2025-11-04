@@ -1,0 +1,26 @@
+<EditForm Model="@formData" OnValidSubmit="HandleSubmit">
+    <InputText @bind-Value="formData.Name" placeholder="Your Name" />
+    <InputText @bind-Value="formData.Email" placeholder="Your Email" />
+    <button type="submit">Submit</button>
+</EditForm>
+
+@if (isSubmitted)
+{
+    <p>✅ Registration successful! Thank you, @formData.Name.</p>
+}
+
+@code {
+    private FormData formData = new();
+    private bool isSubmitted = false;
+
+    private void HandleSubmit()
+    {
+        isSubmitted = true;
+    }
+
+    public class FormData
+    {
+        public string Name { get; set; } = "";
+        public string Email { get; set; } = "";
+    }
+}

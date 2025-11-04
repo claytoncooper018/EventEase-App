@@ -1,0 +1,17 @@
+<div class="event-card">
+    <h3>@Title</h3>
+    <p><strong>Location:</strong> @Location</p>
+    <p><strong>Date:</strong> @Date.ToShortDateString()</p>
+    <button @onclick="Register">Register</button>
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; } = string.Empty;
+    [Parameter] public string Location { get; set; } = string.Empty;
+    [Parameter] public DateTime Date { get; set; }
+
+    private void Register()
+    {
+        Console.WriteLine($"Registered for {Title}");
+    }
+}
